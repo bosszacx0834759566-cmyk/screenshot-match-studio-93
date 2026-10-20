@@ -345,10 +345,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; heig
   color: var(--paper); background: oklch(0 0 0 / 60%); border-top: 1px solid oklch(1 0 0 / 22%);
   backdrop-filter: blur(6px); }
 .portrait-tag-left { display: inline-flex; align-items: center; gap: 8px; }
-.portrait-tag-left::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--paper);
-  animation: portrait-pulse 1.6s ease-in-out infinite; }
 .portrait-tag-meta { font-weight: 500; letter-spacing: .18em; opacity: .55; }
-@keyframes portrait-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 @media (min-width: 640px) { .founder-portrait { max-width: 360px; } }
 @media (min-width: 768px) { .founder-portrait { max-width: none; margin-inline: 0; } }
 
