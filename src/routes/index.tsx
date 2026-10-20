@@ -5,10 +5,12 @@ import { ArrowDown, ArrowUpRight, Plus, X } from "lucide-react";
 import { Scramble } from "@/components/Scramble";
 import { OriginPanel } from "@/components/OriginPanel";
 import { Cursor } from "@/components/Cursor";
-import issVideo from "@/assets/restored-iss-video.mp4.asset.json";
-import goddardImg from "@/assets/goddard-v2.jpg.asset.json";
-import oppenheimerImg from "@/assets/oppenheimer-v2.jpg.asset.json";
-import bossPortrait from "@/assets/restored-boss-portrait-v2.png.asset.json";
+// Media is served from /public/assets with root-relative paths so it works
+// identically on the Lovable preview and on Vercel (no CDN pointers).
+const issVideo = "/assets/iss-video.mp4";
+const goddardImg = "/assets/goddard.jpg";
+const oppenheimerImg = "/assets/oppenheimer.jpg";
+const bossPortrait = "/assets/boss-portrait.png";
 import { FOUNDER_BIRTH_ISO, FOUNDER_BIRTH_EN, founderAge } from "@/founder";
 
 const seoTitle = "GodHeimer Technologies | Space & Defense Technology from Thailand";
@@ -184,7 +186,7 @@ function Index() {
               <Dialog.Trigger className="menu-btn mono" aria-label="Open menu"><span className="menu-btn-fill" /><span className="menu-btn-label hidden sm:inline-block"><Scramble text="Menu" /></span><span className="menu-btn-icon"><span className="menu-bars"><span /><span /></span></span></Dialog.Trigger>
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 z-[60] overflow-hidden bg-ink">
-                  <video src={issVideo.url} autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" />
+                  <video src={issVideo} autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-ink/50" />
                 </Dialog.Overlay>
                 <Dialog.Content aria-describedby={undefined} className="site-container no-scrollbar fixed inset-0 z-[61] flex max-w-none flex-col overflow-y-auto bg-transparent pb-8 pt-6 text-paper">
@@ -203,7 +205,7 @@ function Index() {
       {/* HERO */}
       <section id="top" ref={heroRef} onMouseMove={onMove} className="hero bg-ink">
         <div className="hero-media" aria-hidden="true">
-          <video src={issVideo.url} autoPlay loop muted playsInline preload="auto" />
+          <video src={issVideo} autoPlay loop muted playsInline preload="auto" />
         </div>
 
         <div className="site-container relative z-10 pb-10 pt-32">
@@ -315,7 +317,7 @@ function Index() {
           </div>
           <div className="origin-grid mt-24">
             <figure className="founder-card origin-a reveal" style={{ transitionDelay: "0ms" }}>
-              <OriginPanel src={goddardImg.url} alt="Robert H. Goddard" code="GH-01" tag="SPACE" coords="42.2626° N / 71.8023° W" year="1926" />
+              <OriginPanel src={goddardImg} alt="Robert H. Goddard" code="GH-01" tag="SPACE" coords="42.2626° N / 71.8023° W" year="1926" />
               <figcaption className="mt-8">
                 <div className="flex items-baseline justify-between gap-6">
                   <span className="display-lg">GOD</span>
@@ -326,7 +328,7 @@ function Index() {
               </figcaption>
             </figure>
             <figure className="founder-card origin-b reveal" style={{ transitionDelay: "120ms" }}>
-              <OriginPanel src={oppenheimerImg.url} alt="J. Robert Oppenheimer" code="GH-02" tag="DEFENSE" coords="35.8800° N / 106.3031° W" year="1943" />
+              <OriginPanel src={oppenheimerImg} alt="J. Robert Oppenheimer" code="GH-02" tag="DEFENSE" coords="35.8800° N / 106.3031° W" year="1943" />
               <figcaption className="mt-8">
                 <div className="flex items-baseline justify-between gap-6">
                   <span className="display-lg">HEIMER</span>
@@ -349,7 +351,7 @@ function Index() {
           <div className="mt-16 grid items-end gap-10 md:grid-cols-12 md:gap-8 lg:gap-12">
             <div className="reveal founder-portrait-wrap md:col-span-5 md:row-span-2 md:self-center lg:col-span-4 lg:row-span-1 lg:self-end">
               <div className="founder-portrait">
-                <img src={bossPortrait.url} alt="Natthakorn “Boss” Mueangsangsri, Founder & CEO of GodHeimer Technologies" loading="lazy" className="founder-portrait-img" />
+                <img src={bossPortrait} alt="Natthakorn “Boss” Mueangsangsri, Founder & CEO of GodHeimer Technologies" loading="lazy" className="founder-portrait-img" />
                 <span className="hud-corner tl" /><span className="hud-corner tr" />
                 <span className="portrait-tag mono"><span className="portrait-tag-left">GH-03 // FOUNDER</span><span className="portrait-tag-meta">EST. 2026</span></span>
               </div>
