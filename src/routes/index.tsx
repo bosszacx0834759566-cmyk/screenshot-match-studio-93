@@ -5,10 +5,12 @@ import { ArrowDown, ArrowUpRight, Plus, X } from "lucide-react";
 import { Scramble } from "@/components/Scramble";
 import { OriginPanel } from "@/components/OriginPanel";
 import { Cursor } from "@/components/Cursor";
-import issVideo from "@/assets/restored-iss-video.mp4.asset.json";
-import goddardImg from "@/assets/goddard-v2.jpg.asset.json";
-import oppenheimerImg from "@/assets/oppenheimer-v2.jpg.asset.json";
-import bossPortrait from "@/assets/restored-boss-portrait-v2.png.asset.json";
+// Media is served from /public/assets with root-relative paths so it works
+// identically on the Lovable preview and on Vercel (no CDN pointers).
+const issVideo = "/assets/iss-video.mp4";
+const goddardImg = "/assets/goddard.jpg";
+const oppenheimerImg = "/assets/oppenheimer.jpg";
+const bossPortrait = "/assets/boss-portrait.png";
 import { FOUNDER_BIRTH_ISO, FOUNDER_BIRTH_EN, founderAge } from "@/founder";
 
 const seoTitle = "GodHeimer Technologies | Space & Defense Technology from Thailand";
